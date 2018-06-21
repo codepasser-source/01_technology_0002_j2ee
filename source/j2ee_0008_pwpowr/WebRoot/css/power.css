@@ -1,0 +1,17 @@
+
+#power{ 
+  background: #ffffff;
+  width: 80px;
+  height: 25px;
+  border: 1px solid #cccccc;
+  display: none; 
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  align:center;
+}
+
+#password{
+   width: 200px;
+  height: 25px;
+}

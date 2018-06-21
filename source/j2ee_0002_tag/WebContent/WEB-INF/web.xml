@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+  <display-name>j2ee_0002_tag</display-name>
+  <jsp-config>
+    <taglib>
+        <taglib-uri>http://www.baishui_c.org/taglib1</taglib-uri>
+        <taglib-location>/WEB-INF/classes/taglib1.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>http://www.baishui_c.org/taglib2</taglib-uri>
+        <taglib-location>/WEB-INF/classes/taglib2.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  <servlet>
+   <servlet-name>ActionSupport</servlet-name>
+   <servlet-class>com.baishui.servlet.ActionSupport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>ActionSupport</servlet-name>
+   <url-pattern>/ActionSupport</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

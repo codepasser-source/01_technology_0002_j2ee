@@ -1,0 +1,96 @@
+<html> 
+<head> 
+<title> 
+TD   Testing   ! 
+</title> 
+</head> 
+<script   language="javascript1.2"   type="text/javascript"> 
+function   getTdValue(){ 
+var tab=document.getElementById('tab');
+for(var i=0 ;i<tab.rows.length;i++)
+{
+  for(var j=0;j<tab.rows[i].cells.length;j++)
+    alert(tab.rows[i].cells[j].innerHTML);
+}
+} 
+</script> 
+
+<body> 
+<table id='tab'> <!-------这里不要忘记加id------->
+<tr> 
+<td   name="tips1"> ABCD1234 </td> 
+<td   name="tips1"> POIU8765 </td> 
+</tr> 
+<tr> 
+<td   name="tips2"> 12345abcd </td> 
+<td   name="tips2"> 23456fvbg </td> 
+</tr> 
+</table> 
+<input   type="button"   onclick="getTdValue();"   value="GETTDVALUE"> 
+</body> 
+</html> 
+
+
+active 代表输入法为中文
+inactive 代表输入法为英文
+auto 代表打开输入法 (默认)
+disable 代表关闭输入法
+
+<INPUT onfocus=" this.style.imeMode='active' " />
+
+<INPUT onfocus=" this.style.imeMode='inactive' " />
+
+<INPUT onfocus=" this.style.imeMode='auto' " />
+
+<INPUT onfocus=" this.style.imeMode='disabled' " /> 这个应该算最常用的了,其他可以不记
+
+
+js屏蔽浏览器（IE和FireFox）的刷新和右键等功能 
+
+
+
+一，js屏蔽浏览器（IE和FireFox）的刷新功能 
+
+document.onkeydown=function() 
+{ 
+if ((window.event.keyCode==116)|| //屏蔽 F5 
+(window.event.keyCode==122)|| //屏蔽 F11 
+(window.event.shiftKey && window.event.keyCode==121) //shift+F10 
+) 
+{ 
+window.event.keyCode=0; 
+window.event.returnValue=false; 
+} 
+if ((window.event.altKey)&&(window.event.keyCode==115)){ //屏蔽Alt+F4 
+window.showModelessDialog("about:blank","","dialogWidth:1px;dialogheight:1px"); 
+return false; 
+} 
+} 
+
+
+
+二，屏蔽右键 
+
+if (window.Event) 
+document.captureEvents(Event.MOUSEUP); 
+function nocontextmenu(){ 
+event.cancelBubble = true 
+event.returnValue = false; 
+return false; 
+} 
+function norightclick(e){ 
+if (window.Event){ 
+  if (e.which == 2 || e.which == 3) 
+  return false; 
+} 
+else 
+  if (event.button == 2 || event.button == 3){ 
+   event.cancelBubble = true 
+   event.returnValue = false; 
+   return false; 
+  } 
+} 
+document.oncontextmenu = nocontextmenu; // for IE5+ 
+document.onmousedown = norightclick; // for all others 
+
+

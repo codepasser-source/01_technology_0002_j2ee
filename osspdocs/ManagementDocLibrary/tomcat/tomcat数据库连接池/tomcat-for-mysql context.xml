@@ -1,0 +1,22 @@
+<!-- The contents of this file will be loaded for each web application -->
+<Context reloadable="true">
+
+    <!-- Default set of monitored resources -->
+    
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+	<Resource
+            auth="Container"
+            name="jdbc/bbs"
+            type="javax.sql.DataSource"
+            driverClassName="com.mysql.jdbc.Driver"
+            password="root"
+            maxIdle="30"
+            maxWait="10000"
+            username="root"
+            url="jdbc:mysql://localhost/bbs"
+            maxActive="100"/>  
+</Context>

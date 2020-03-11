@@ -1,0 +1,11 @@
+2、在server.xml中指定
+    在Tomcat的配置文件中，一个Web应用就是一个特定的Context，可以通过在server.xml中新建Context里部署一个JSP应用程序。打开server.xml文件，在Host标签内建一个Context，内容如下。
+<Context path="/myapp" reloadable="true" docBase="D:\myapp" workDir="D:\myapp\work"/>
+    其中path是虚拟路径，docBase是JSP应用程序的物理路径，workDir是这个应用的工作目录，存放运行是生成的于这个应用相关的文件。
+
+3、创建一个Context文件
+    以上两种方法，Web应用被服务器加载后都会在Tomcat的conf\catalina\localhost目录下生成一个XML文件，其内容如下：
+<Context path="/admin" docBase="${catalina.home}/server/webapps/admin" debug="0" privileged="true"></Context>
+可以看出，文件中描述一个应用程序的Context信息，其内容和server.xml中的Context信息格式是一致的，文件名便是虚拟目录名。您可以直接建立这样的一个xml文件，放在Tomcat的conf\catalina\localhost目录下。例子如下：
+注意：删除一个Web应用同时也要删除webapps下相应的文件夹祸server.xml中相应的Context，还要将Tomcat的conf
+\catalina\localhost目录下相应的xml文件删除。否则Tomcat仍会岸配置去加载。。。   

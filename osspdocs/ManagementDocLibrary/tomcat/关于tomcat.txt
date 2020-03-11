@@ -1,0 +1,12 @@
+  
+  tomcat 中配置 访问记录 日志
+  <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true"
+            xmlValidation="false" xmlNamespaceAware="false">
+
+			<Valve className="org.apache.catalina.valves.AccessLogValve"
+                 directory="C:\Program Files\Apache Software Foundation\Tomcat 6.0\logs\" prefix="access_log." suffix=".txt"
+                 pattern="common"  resolveHosts="false"/>
+
+        
+      </Host>
